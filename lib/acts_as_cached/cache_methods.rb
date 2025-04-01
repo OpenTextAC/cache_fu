@@ -218,7 +218,8 @@ module ActsAsCached
             when new_record?
               "new"
             when timestamp = self[:updated_at]
-              timestamp = timestamp.utc.to_s(:number)
+              #timestamp = timestamp.utc.to_s(:number)
+              timestamp = timestamp.utc.strftime('%Y%m%d%H%M%S')
               "#{id}-#{timestamp}"
             else
               id.to_s
